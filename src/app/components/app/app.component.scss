@@ -1,9 +1,17 @@
 .expense-report {
+  .expense-report-header {
+    border-bottom: 1px solid #dee2e6;
+    margin-bottom: 40px;
+    h2 {
+      margin-left: 20px;
+    }
+  }
   .expense-report-content {
     display: flex;
     .expense-report-form,
     .expense-report-detail {
       width: 100%;
+      padding: 0 20px;
     }
   }
 }

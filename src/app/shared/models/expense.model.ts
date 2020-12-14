@@ -1,6 +1,6 @@
 export interface Expense {
-  label: string;
+  description: string;
   currency: string;
-  value: number;
-  valueInBaseCurrency?: number;
+  amount: number;
+  amountInBaseCurrency?: number;
 }

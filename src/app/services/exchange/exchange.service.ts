@@ -15,7 +15,6 @@ export class ExchangeService {
   getExchangeRates(): Observable<ExchangeRatesResponse> {
     const api = env.exchange.api;
     const base = env.exchange.base;
-    const cacheTime = env.exchange.cacheAPITime;
     return this.httpClient.get<ExchangeRatesResponse>(`${api}?base=${base}`);
   }
 
@@ -23,6 +22,15 @@ export class ExchangeService {
     return this.getExchangeRates().pipe(
       map((exchangeRates) => {
         return Object.keys(exchangeRates.rates);
+      })
+    );
+  }
+
+  getExchangeValue(value: number, currency: string): Observable<number> {
+    return this.getExchangeRates().pipe(
+      map((exchangeRates) => {
+        const currencyValue = exchangeRates.rates[currency];
+        return value / currencyValue;
       })
     );
   }
