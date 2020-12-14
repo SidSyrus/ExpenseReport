@@ -1,0 +1,9 @@
+.expense-report {
+  .expense-report-content {
+    display: flex;
+    .expense-report-form,
+    .expense-report-detail {
+      width: 100%;
+    }
+  }
+}

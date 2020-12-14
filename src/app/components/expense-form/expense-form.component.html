@@ -1,0 +1,34 @@
+<div class="form">
+  <div>
+    <span>Description</span>
+    <input
+      type="text"
+      required
+      [(ngModel)]="expenseDescription"
+      placeholder="Description"
+    />
+  </div>
+  <div>
+    <span>Currency</span>
+    <select [(ngModel)]="expenseCurrency" required>
+      <option
+        *ngFor="let currency of currencies | async"
+        [selected]="currency === expenseCurrency"
+      >
+        {{ currency }}
+      </option>
+    </select>
+  </div>
+  <div>
+    <span>Amount</span>
+    <input
+      type="number"
+      [(ngModel)]="expenseAmount"
+      required
+      placeholder="Amount"
+    />
+  </div>
+  <div>
+    <button (click)="addExpense()">Add Expense</button>
+  </div>
+</div>
